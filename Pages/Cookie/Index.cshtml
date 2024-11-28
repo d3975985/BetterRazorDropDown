@@ -1,0 +1,35 @@
+﻿@page
+@model RazorDropDown.Pages.Cookie.IndexModel
+
+
+@{
+    ViewData["Title"] = "Page 1 - Set Cookie";
+}
+
+<h1>Cookies</h1>
+
+@{if
+    ( ViewData["UserName"] != null )
+    {
+        <p>You have been here before and you are called @ViewData["UserName"]</p>
+    }
+}
+
+
+<p>Cookies are small pieces of data stored on the client’s browser, allowing data 
+    persistence across multiple requests, sessions, and 
+    even after the browser is closed, depending on the expiration settings.</p>
+
+<p> A classic use of cookies is Storing Analytics Data: You can store specific analytics-related data in cookies, 
+    such as the last page visited, timestamps, or any event data, 
+    which can later be sent to an analytics server or database.</p>
+
+<form method="post">
+    <div class="form-group">
+        <label for="name">Enter your name:</label>
+        <input type="text" id="name" asp-for="UserName" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Save Name in Cookie</button>
+</form>
+
+<a asp-page="Page2">Go to Page 2</a>

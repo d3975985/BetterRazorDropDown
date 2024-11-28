@@ -1,0 +1,27 @@
+﻿@page
+@model RazorDropDown.Pages.Query1.IndexModel
+@{
+    ViewData["Title"] = "Index - Pass Name in URL";
+}
+
+<h1>Query Strings </h1>
+<p>Query strings are key-value pairs appended to a URL, 
+    allowing data to be passed between pages in the URL itself. 
+    In Razor Pages, query strings are commonly used to filter or display specific content 
+    based on parameters sent in the URL.</p>
+
+<p>This very simple version uses parameter binding OnGet(string UserName)</p>
+
+
+
+@{if (ViewData["userNameBack"] != null){
+        <p>Current User Name is @ViewData["userNameBack"]</p>
+}
+}
+<form method="get">
+    <div class="form-group">
+        <label for="name">Enter your name:</label>
+        <input type="text" id="name" asp-for="UserName" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Go to Page 2 with Name</button>
+</form>
